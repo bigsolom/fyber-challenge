@@ -1,0 +1,15 @@
+%form(role="form" method="get" action=offers_path)
+  .form-group
+    %label(for="inputUID")
+      UID
+    %input.form-control#inputUID(type="text" name="uid")
+  .form-group
+    %label(for="inputPub0")
+      Custom Parameters
+    %input.form-control#inputPub0(type="text" name="pub0")
+  .form-group
+    %label(for="inputPage")
+      Page
+    %input.form-control#inputPage(type="text" name="page")
+  %button.btn.btn-default(type="submit")
+    Get Offers

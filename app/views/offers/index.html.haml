@@ -1,0 +1,24 @@
+.row
+  .h1
+    Request
+  = @reply.request.raw_body
+  .h1
+    Reply
+  = @reply.to_s
+
+.row
+  - if @offers.empty?
+    .no_offers
+      No Offers
+  - else
+    - @offers.each do |offer|
+      .offer
+        .row
+          .col-sm-6.col-md-4
+            .thumbnail
+              %img(data-src="holder.js/300x300" alt="...")
+              .caption
+                %h3.title
+                  =offer["title"]
+                %p.payout
+                  =offer["payout"]

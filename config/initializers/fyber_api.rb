@@ -1,0 +1,1 @@
+Rails.application.config.fyber_api_key = ENV['fyber_api_key']
