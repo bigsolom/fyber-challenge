@@ -5,8 +5,9 @@ class OffersController < ApplicationController
     fyber_request_params["page"] = params["page"]
     fyber_request_params["pub0"] = params["pub0"]
     fyber_request_params["timestamp"] = Time.now.to_i
+    # fyber_request_params["timestamp"] = Time.new(2014, 10, 1, 2, 2, 2)
     # fyber_request_params["ps_time"] = Time.now.to_i
-    fyber_request_params["hashkey"]=Digest::SHA1.hexdigest(fyber_request_params.sort_by {|key, value| key}.map {|pair| pair[0]+"="+pair[1].to_s}.join("&").concat("&"+Rails.configuration.fyber_api_key))
+    fyber_request_params["hashkey"]=Signature.hash_request_parameters(fyber_request_params)
     # byebug
     # WebMock.allow_net_connect!
 
@@ -17,7 +18,7 @@ class OffersController < ApplicationController
     # byebug
 
     #validate response
-    unless @reply.headers["x-sponsorpay-response-signature"] == Digest::SHA1.hexdigest(@reply.body+Rails.configuration.fyber_api_key)
+    unless @reply.headers["x-sponsorpay-response-signature"] == Signature.sign_response(@reply.body)
       render status: 403, text: "Invalid Signature"
     end
     # byebug

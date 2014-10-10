@@ -14,6 +14,6 @@ RSpec.describe OffersController, :type => :controller do
     get :index, {uid: 'player1', pub0: 'campaign2', page: 1}
     assert_response 200
     expect(response).to render_template :index
-    expect(assigns :offers)
+    expect(assigns :offers).not_to be_nil
   end
 end

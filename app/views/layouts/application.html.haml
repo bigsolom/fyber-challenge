@@ -13,11 +13,11 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} Fyber Challenge
+          = link_to 'Fyber Challenge', root_path, class: 'navbar-brand'
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active
-              %a{:href => "#"} Home
+              = link_to 'Home', root_path
       / /.nav-collapse
     .container
       .starter-template
