@@ -1,6 +1,4 @@
 class OffersController < ApplicationController
-      require 'webmock'
-    include WebMock::API
   def index
     fyber_request_params = {"appid" => 157, "device_id"=> "2b6f0cc904d137be2e1730235f5664094b831186", "locale"=> "de", "ip"=> "109.235.143.113", "offer_types"=> 112}
     fyber_request_params["uid"] = params.require(:uid)
@@ -23,7 +21,7 @@ class OffersController < ApplicationController
       render status: 403, text: "Invalid Signature"
     end
     # byebug
-    @offers = eval(@reply.body)["offers"]
+    @offers = JSON.parse(@reply.body)["offers"]
   end
 
 end

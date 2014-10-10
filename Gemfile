@@ -37,7 +37,9 @@ group :development, :test do
 end
 group :test do
   #automated testing
-  gem "capybara", group: :test
+  gem "capybara"
+  #selenium driver for automated testing
+  gem 'selenium-webdriver'
   #mock http requests
   gem 'webmock'
 end
