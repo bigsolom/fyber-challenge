@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Get Offers' do
   mock_requests
   toggle_webmock
-  scenario 'Fill the input form then get list of offers through a stubbed reply' do
+  scenario 'Fill the input form then get list of offers through mocking reply' do
     visit root_path
     fill_in 'inputUID', with: 'player2'
     fill_in 'inputPub0', with: 'campaign1'
@@ -29,8 +29,8 @@ feature 'Get Offers' do
     fill_in 'inputPage', with: '1'
     click_button 'Get Offers'
     expect(current_path).to eq offers_path
-    expect(page).to have_content 'No Offers'
     expect(page.status_code).to eq(200)
+    expect(page).to have_css('div.row.offers-wrapper')
   end
 
 end
