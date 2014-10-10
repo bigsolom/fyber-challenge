@@ -31,10 +31,21 @@ gem 'haml-rails'
 #for http requests
 gem 'httparty'
 
+#for automated testing
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
 end
-gem "capybara", group: :test
+group :test do
+  #automated testing
+  gem "capybara", group: :test
+  #mock http requests
+  gem 'webmock'
+end
+
+#for debugging
+gem 'byebug'
+gem 'rb-readline'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

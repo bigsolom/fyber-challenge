@@ -1,8 +1,9 @@
-%form(role="form" method="get" action=offers_path)
+%form#inputForm(role="form" method="get" action=offers_path)
   .form-group
     %label(for="inputUID")
       UID
-    %input.form-control#inputUID(type="text" name="uid")
+    %input.form-control#inputUID(type="text" name="uid" data-bv-notempty="true"
+                                data-bv-notempty-message="UID is required and cannot be empty")
   .form-group
     %label(for="inputPub0")
       Custom Parameters

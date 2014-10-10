@@ -2,8 +2,6 @@
 %html
   %head
     %title Fyber
-    %link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
-    %link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css")
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
@@ -23,8 +21,7 @@
       / /.nav-collapse
     .container
       .starter-template
-        %h1 Bootstrap starter template
+        %h1 Fyber Challenge
         = yield
     / %script(src = "http://code.jquery.com/jquery-2.1.1.min.js")
-    %script(src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")
     = javascript_include_tag 'application', 'data-turbolinks-track' => true

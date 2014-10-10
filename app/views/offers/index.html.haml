@@ -4,7 +4,7 @@
   = @reply.request.raw_body
   .h1
     Reply
-  = @reply.to_s
+  = @reply.body.to_s
 
 .row
   - if @offers.empty?
