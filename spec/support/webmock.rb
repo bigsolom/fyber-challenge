@@ -1,4 +1,3 @@
-puts 'file included'
 module WebmockMacros
    def toggle_webmock
     before(:each, webmock: false) do
